@@ -35,7 +35,7 @@ const products_03: [string, number, boolean][] = [
 function getProductNamesAndPrices(
 	products: [string, number, boolean][]
 ) : [string, number][] {
-	const new_products = products.map(([name, price]) => [name, price] as [string, number]);
+	const new_products:[string, number][] = products.map(([name, price]) => [name, price]);
 	// 여기에 구현
 	return new_products;
 }
@@ -64,10 +64,9 @@ console.log(getAvailableProducts(products_03));
   
 //   문제 4. 사용자 정보를 업데이트하는 함수를 작성하세요. 나이가 제공되지 않으면 기본값으로 18을 사용하세요
 //매개변수, 리턴 타입 정의 필요
-function updateUser(user:{name:string,age?:number}) :{name:string, age?:number} {
+function updateUser(user:{name:string,age?:number}) :{name:string, age:number} {
 	// 나이가 제공되지 않으면 18로 설정
-	user.age = user.age ? user.age : 18;
-	return user;
+	return {...user, age: user.age ?? 18};
 }
   
 // 테스트 코드
@@ -85,12 +84,13 @@ const products_05:{name:string,price:number,category?:string}[] = [
 //매개변수, 리턴 타입 정의 필요
 function getProductsByCategory(category:string):string[] {
 	// 여기에 구현
+	const result:string[]=[];
 	for (const product of products_05) {
 		if (product.category == category) {
-			return [product.name];
+			result.push(product.name);
 		}
 	}
-	return []
+	return result;
 }
 
 // 테스트 코드
