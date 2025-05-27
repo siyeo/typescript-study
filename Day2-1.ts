@@ -5,15 +5,15 @@
 
 // 인터페이스 작성
 interface IUser01 {
-	id:number,
-	name:string,
-	email?:string
+	id:number;
+	name:string;
+	email?:string;
 }
 // 타입 작성
 type TUser01 = {
-	id:number,
-	name:string,
-	email?:string
+	id:number;
+	name:string;
+	email?:string;
 }
 
 const user01:IUser01 = {
@@ -36,11 +36,11 @@ const userWithEmail:TUser01 = {
 // User 타입을 작성하세요.
 // 여기에 작성
 type TUser02 = {
-	id:number,
-	name:string,
+	id:number;
+	name:string;
 	address:{
-		city:string,
-		zipCode:number
+		city:string;
+		zipCode:number;
 	}
 }
 
@@ -62,14 +62,14 @@ const user02:TUser02 = {
 // User 인터페이스 작성
 // 여기에 작성
 interface IUser03 {
-	id:number,
-	name:string,
-	email?:string
+	id:number;
+	name:string;
+	email?:string;
 }
 // Admin 인터페이스 작성 (User 확장)
 // 여기에 작성
 interface IAdmin03 extends IUser03 {
-	role:string
+	role:string;
 }
 
 const normalUser:IUser03 = {
@@ -92,15 +92,15 @@ const adminUser:IAdmin03 = {
 // Product 타입 작성
 // 여기에 작성
 type TProduct04 = {
-	id:number,
-	name:string,
-	price:number
+	id:number;
+	name:string;
+	price:number;
 }
 
 // DiscountedProduct 타입 작성 (Product 확장)
 // 여기에 작성
 type TDiscountedProduct = TProduct04 & {
-	discount:number
+	discount:number;
 }
 
 const normalProduct:TProduct04 = {
@@ -129,17 +129,17 @@ const discountedProduct:TDiscountedProduct = {
 // Product 타입 작성
 // 여기에 작성
 type TProduct05 = {
-	id:number,
-	name:string,
-	price:number
+	id:number;
+	name:string;
+	price:number;
 }
 
 // Order 타입 작성
 // 여기에 작성
 type TOrder05 = {
-	orderId:number,
-	products: TProduct05[],
-	totalPrice:number
+	orderId:number;
+	products: TProduct05[];
+	totalPrice:number;
 }
 
 // Order 타입을 사용하여 아래 객체를 작성하세요.
@@ -166,18 +166,18 @@ const order:TOrder05 = {
 // BaseUser 인터페이스 작성
 // 여기에 작성
 interface BaseUser {
-	id:number,
-	name:string
+	id:number;
+	name:string;
 }
 // AdminUser 타입 작성
 // 여기에 작성
 type AdminUser = BaseUser & {
-	role:string
+	role:string;
 }
 // GuestUser 타입 작성
 // 여기에 작성
 type GuestUser = BaseUser & {
-	visitCount:number
+	visitCount:number;
 }
 // 아래 객체를 작성하세요.
 const admin: AdminUser = {
