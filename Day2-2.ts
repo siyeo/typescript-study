@@ -63,7 +63,8 @@ function processTask(status: TaskStatus02, input: unknown): string {
   // 여기에 구현
     if (typeof(input) !== "string") {
         // input은 문자열이어야 합니다.
-        return "에러: 입력값은 문자열이어야 합니다."
+        // throw new Error("에러: 입력값은 문자열이어야 합니다.");
+        return "에러: 입력값은 문자열이어야 합니다.";
     }
     if (status == TaskStatus02.Pending) {
         // Pending: 문자열을 모두 대문자로 변환.
@@ -76,8 +77,10 @@ function processTask(status: TaskStatus02, input: unknown): string {
         return "완료: " + input;
     } else if (status == TaskStatus02.Failed) {
         // Failed: 에러를 발생시킵니다.
+        // throw new Error("에러: 작업이 실패했습니다.");
         return "에러: 작업이 실패했습니다.";
     }
+    // throw new Error("에러: 해당되는 작업 상태가 없습니다.");
     return "에러: 해당되는 작업 상태가 없습니다.";
 }
 
@@ -134,7 +137,7 @@ type LogMessage = (
 
 
 // 로그 함수 구현
-const logMessage:LogMessage = (message:string, level:LEVEL):void => {
+const logMessage:LogMessage = (message:string, level:LEVEL) => {
   // 여기에 구현
     console.log("["+level+"] "+message);
 };
@@ -166,7 +169,8 @@ function processUnknown(input: unknown): string | number {
     } else if (typeof(input) ===  "number") {
         return input * 10;
     } else {
-        return "에러 발생";
+        // throw new Error("에러: 입력값은 문자열 또는 숫자자이어야 합니다.");
+        return "에러: 입력값은 문자열 또는 숫자이어야 합니다.";
     }
 }
 
