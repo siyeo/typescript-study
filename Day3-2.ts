@@ -5,17 +5,18 @@
 // 문자열 배열: 배열의 모든 문자열을 연결한 결과를 반환합니다.
 // 객체 { message: string }: message 속성을 대문자로 변환한 문자열을 반환합니다.
 // 매개변수, 리턴타입 정의필요 
-function processInput(input:number[]|string[]|object):number|string {
-	let result:number|string = "";
+function processInput(input:number[]|string[]|{ message: string }):number|string {
 	// 여기에 작성
 	if (Array.isArray(input)) {
-		input.forEach(element => {
-			result += element;
-		});
-	} else {
-		result = (input as {message:string}).message.toUpperCase();
+		if (typeof input[0] === "number") {
+			return (input as number[]).reduce((sum,num)=>sum + num, 0)
+		} else if (typeof input[0] === "string") {
+			return (input as string[]).join("");
+		}
+	} else if ("message" in input) {
+		return (input as {message:string}).message.toUpperCase();
 	}
-	return result;
+	throw new Error("잘못된 입력 값입니다.");
 }
 
 // 테스트 코드
