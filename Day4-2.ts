@@ -13,7 +13,8 @@ type ButtonStyle = "primary"| "secondary"| "danger";
 
 function getButtonClass(style: ButtonStyle): string {
   // 여기에 구현
-  return `btn-${style}`;
+    if (style === "primary" || style === "secondary" || style === "danger") return `btn-${style}`;
+    throw new Error("사용하지 않는 버튼 스타일입니다.");
 }
 
 // 테스트 코드
