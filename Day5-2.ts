@@ -29,7 +29,7 @@ function calculateShippingCost(
   costs: Record<RegionCode,number>
 ): number {
   // 여기에 구현
-  if (costs[region]) {
+  if (region in costs) {
     return costs[region];
   } else {
     throw new Error("정의되지 않은 지역코드 입니다.");
